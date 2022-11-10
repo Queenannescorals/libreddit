@@ -150,16 +150,13 @@
 	<div class="post_score" title="{{ post.score.1 }}">{{ post.score.0 }}<span class="label"> Upvotes</span></div>
 	<div class="post_footer">
 		<ul id="post_links">
-			<li class="desktop_item"><a href="{{ post.permalink }}">permalink</a></li>
-			<li class="mobile_item"><a href="{{ post.permalink }}">link</a></li>
+			<li><a href="{{ post.permalink }}">permalink</a></li>
 			{% if post.num_duplicates > 0 %}
-			<li class="desktop_item"><a href="/r/{{ post.community }}/duplicates/{{ post.id }}">duplicates</a></li>
-			<li class="mobile_item"><a href="/r/{{ post.community }}/duplicates/{{ post.id }}">dupes</a></li>
+			<li><a href="/r/{{ post.community }}/duplicates/{{ post.id }}">duplicates</a></li>
 			{% endif %}
-			<li class="desktop_item"><a href="https://reddit.com{{ post.permalink }}" rel="nofollow">reddit</a></li>
-			<li class="mobile_item"><a href="https://reddit.com{{ post.permalink }}" rel="nofollow">reddit</a></li>
+			<li><a href="https://reddit.com{{ post.permalink }}" rel="nofollow">reddit</a></li>
 		</ul>
-		<p>{{ post.upvote_ratio }}%<span id="upvoted"> Upvoted</span></p>
+		<p>{{ post.upvote_ratio }}% Upvoted</p>
 	</div>
 </div>
 {%- endmacro %}
