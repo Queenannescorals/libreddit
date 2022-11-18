@@ -607,8 +607,8 @@ pub async fn parse_post(post: &serde_json::Value) -> Post {
 			},
 		},
 		flags: Flags {
-			nsfw: post["data"]["over_18"].as_bool().unwrap_or(false),
-			stickied: post["data"]["stickied"].as_bool().unwrap_or(false),
+			nsfw: post["data"]["over_18"].as_bool().unwrap_or_default(),
+			stickied: post["data"]["stickied"].as_bool().unwrap_or_default(),
 		},
 		domain: val(post, "domain"),
 		rel_time,
