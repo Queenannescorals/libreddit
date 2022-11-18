@@ -590,7 +590,7 @@ pub async fn parse_post(post: &serde_json::Value) -> Post {
 			alt_url: String::new(),
 			width: post["data"]["thumbnail_width"].as_i64().unwrap_or_default(),
 			height: post["data"]["thumbnail_height"].as_i64().unwrap_or_default(),
-			poster: "".to_string(),
+			poster: String::new(),
 		},
 		flair: Flair {
 			flair_parts: FlairPart::parse(
