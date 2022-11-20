@@ -320,7 +320,7 @@ impl Post {
 				},
 				flags: Flags {
 					nsfw: data["over_18"].as_bool().unwrap_or_default(),
-					stickied: data["stickied"].as_bool().unwrap_or_default(),
+					stickied: data["stickied"].as_bool().unwrap_or_default() || data["pinned"].as_bool().unwrap_or_default(),
 				},
 				permalink: val(post, "permalink"),
 				rel_time,
@@ -607,8 +607,8 @@ pub async fn parse_post(post: &serde_json::Value) -> Post {
 			},
 		},
 		flags: Flags {
-			nsfw: post["data"]["over_18"].as_bool().unwrap_or_default(),
-			stickied: post["data"]["stickied"].as_bool().unwrap_or_default(),
+			nsfw: post["data"]["over_18"].as_bool().unwrap_or(false),
+			stickied: post["data"]["stickied"].as_bool().unwrap_or(false) || post["data"]["pinned"].as_bool().unwrap_or(false),
 		},
 		domain: val(post, "domain"),
 		rel_time,
